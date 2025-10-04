@@ -152,9 +152,101 @@
 
         
         <!-- 
+
+         ===================================================================
+            EDUCATION SECTION (NEW)
+         ===================================================================
+        -->
+        <section id="education" class="py-16">
+            <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                Educational Ladder
+            </h2>
+            <div class="space-y-8">
+                
+                <!-- Master's Degree -->
+                <div class="bg-secondary-dark p-6 rounded-2xl shadow-xl border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-accent">Master of Engineering</h3>
+                        <p class="text-lg text-slate-200 mt-1">Electrical Engineering and Information Technology</p>
+                        <p class="text-slate-400">**Rosenheim University of Applied Sciences**, Rosenheim, Germany</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 md:text-right">
+                        <span class="text-sm font-semibold text-slate-300 bg-slate-700 px-3 py-1 rounded-full">Oct 2016 – Oct 2019</span>
+                    </div>
+                </div>
+
+                <!-- Bachelor's Degree -->
+                <div class="bg-secondary-dark p-6 rounded-2xl shadow-xl border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-accent">Bachelor of Engineering</h3>
+                        <p class="text-lg text-slate-200 mt-1">Electrical and Electronics</p>
+                        <p class="text-slate-400">**SA Engineering College (Anna University)**, Chennai, India</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 md:text-right">
+                        <span class="text-sm font-semibold text-slate-300 bg-slate-700 px-3 py-1 rounded-full">June 2011 – April 2015</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+         <!-- 
             ===================================================================
+            PROJECTS & EXPERIENCE SECTION
+            ===================================================================
+        -->
+        <section id="projects" class="py-16">
+            <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                Featured Experience & Projects
+            </h2>
+            <div class="space-y-12">
+
+                <!-- Project Card 1: Lead EE-System Architect (Holon People Mover) -->
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold text-white">Lead EE-System Architect (Diagnostics & SW-Update)</h3>
+                    <p class="text-accent-light mt-1 mb-3">Cognizant Mobility GmbH | Jan 2023 - Present</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+                        <li>SAE L4 Autonomous Shuttle Diagnostics: Led the system design for diagnostics, including 40+ diagnostic endpoints, communication over DoIP and DoCAN, ensuring compliance with cybersecurity and functional safety standards (R155, R166).</li>
+                        <li>MBSE Requirement Management: Defined use cases, network, and logical architectures, and wrote L2-L4 system requirements using Vector PREEvision.</li>
+                        <li>Team Leadership: Built and managed a team of 4 diagnostic system engineers, aligning requirements across chassis, body, powertrain, and self-driving systems.</li>
+                        <li>Integration & Validation: First point of contact for diagnostic issues during LabCar setups, prototype builds, and system integration testing.</li>
+                    </ul>
+                </div>
+
+                <!-- Project Card 2: System Specialist (BMW Group - Test Automation) -->
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold text-white">System Specialist & Test Automation Engineer</h3>
+                    <p class="text-accent-light mt-1 mb-3">ESG Mobility GmbH | Nov 2019 - July 2022</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+                        <li>Test Automation Development: Developed and implemented automated test solutions for BMW's automatic gear transmission systems (Gen 4 & 5) using ECU-Test, Python, CANoe, and dSPACE, significantly enhancing test coverage and system reliability.</li>
+                        <li>EE Integration: Managed H/W and S/W integration for Vehicle Body Domain systems (Climate, Smart Access, Doors) across BMW/Rolls-Royce platforms, utilizing Octane, CANoe, and ECU-Test on HIL and prototype vehicles.</li>
+                        <li>Calibration & Validation: Supported system integration and validation for longitudinal torque distribution (LMV) on the BMW 8 Series using ETAS INCA and Tool 32.</li>
+                    </ul>
+                </div>
+
+                <!-- Project Card 3: Master Thesis (EV Charging ECU) -->
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold text-white">Master Thesis: EV Communication Interface ECU</h3>
+                    <p class="text-accent-light mt-1 mb-3">FEV Europe GmbH | Mar 2019 - Sep 2019</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+                        <li>Function Development: Designed and implemented a communication interface ECU function for EV and GB/T Standard DC-Charger using MATLAB Simulink and Stateflow.</li>
+                        <li>Automated Testing: Implemented an automated test system for CAN and J1939 messages using CANalyzer and CAPL scripting to validate software functionality.</li>
+                        <li>HIL Implementation: Conducted software tests in an Open Loop Hardware-in-the-Loop (HIL) environment utilizing the Pi Innovo M560 hardware platform.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Inject CSS for project cards -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        card.classList.add('bg-secondary-dark', 'p-8', 'rounded-2xl', 'shadow-2xl', 'border', 'border-accent/30', 'hover:border-accent', 'transition', 'duration-300', 'hover:shadow-accent/30');
+                    });
+                });
+            </script>
+        </section>
+            <!-- 
+      ===================================================================
             SKILLS SECTION
-            ===================================================================
+      ===================================================================
         -->
         <section id="skills" class="py-16">
             <h2 class="text-4xl font-bold text-white mb-10 text-center">
@@ -229,61 +321,6 @@
                 });
             });
         </script>
-
-        <!-- 
-            ===================================================================
-            PROJECTS & EXPERIENCE SECTION
-            ===================================================================
-        -->
-        <section id="projects" class="py-16">
-            <h2 class="text-4xl font-bold text-white mb-10 text-center">
-                Featured Experience & Projects
-            </h2>
-            <div class="space-y-12">
-
-                <!-- Project Card 1: Lead EE-System Architect (Holon People Mover) -->
-                <div class="project-card">
-                    <h3 class="text-2xl font-bold text-white">Lead EE-System Architect (Diagnostics & SW-Update)</h3>
-                    <p class="text-accent-light mt-1 mb-3">Cognizant Mobility GmbH | Jan 2023 - Present</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                        <li>SAE L4 Autonomous Shuttle Diagnostics: Led the system design for diagnostics, including 40+ diagnostic endpoints, communication over DoIP and DoCAN, ensuring compliance with cybersecurity and functional safety standards (R155, R166).</li>
-                        <li>MBSE Requirement Management: Defined use cases, network, and logical architectures, and wrote L2-L4 system requirements using Vector PREEvision.</li>
-                        <li>Team Leadership: Built and managed a team of 4 diagnostic system engineers, aligning requirements across chassis, body, powertrain, and self-driving systems.</li>
-                        <li>Integration & Validation: First point of contact for diagnostic issues during LabCar setups, prototype builds, and system integration testing.</li>
-                    </ul>
-                </div>
-
-                <!-- Project Card 2: System Specialist (BMW Group - Test Automation) -->
-                <div class="project-card">
-                    <h3 class="text-2xl font-bold text-white">System Specialist & Test Automation Engineer</h3>
-                    <p class="text-accent-light mt-1 mb-3">ESG Mobility GmbH | Nov 2019 - July 2022</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                        <li>Test Automation Development: Developed and implemented automated test solutions for BMW's automatic gear transmission systems (Gen 4 & 5) using ECU-Test, Python, CANoe, and dSPACE, significantly enhancing test coverage and system reliability.</li>
-                        <li>EE Integration: Managed H/W and S/W integration for Vehicle Body Domain systems (Climate, Smart Access, Doors) across BMW/Rolls-Royce platforms, utilizing Octane, CANoe, and ECU-Test on HIL and prototype vehicles.</li>
-                        <li>Calibration & Validation: Supported system integration and validation for longitudinal torque distribution (LMV) on the BMW 8 Series using ETAS INCA and Tool 32.</li>
-                    </ul>
-                </div>
-
-                <!-- Project Card 3: Master Thesis (EV Charging ECU) -->
-                <div class="project-card">
-                    <h3 class="text-2xl font-bold text-white">Master Thesis: EV Communication Interface ECU</h3>
-                    <p class="text-accent-light mt-1 mb-3">FEV Europe GmbH | Mar 2019 - Sep 2019</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
-                        <li>Function Development: Designed and implemented a communication interface ECU function for EV and GB/T Standard DC-Charger using MATLAB Simulink and Stateflow.</li>
-                        <li>Automated Testing: Implemented an automated test system for CAN and J1939 messages using CANalyzer and CAPL scripting to validate software functionality.</li>
-                        <li>HIL Implementation: Conducted software tests in an Open Loop Hardware-in-the-Loop (HIL) environment utilizing the Pi Innovo M560 hardware platform.</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- Inject CSS for project cards -->
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    document.querySelectorAll('.project-card').forEach(card => {
-                        card.classList.add('bg-secondary-dark', 'p-8', 'rounded-2xl', 'shadow-2xl', 'border', 'border-accent/30', 'hover:border-accent', 'transition', 'duration-300', 'hover:shadow-accent/30');
-                    });
-                });
-            </script>
-        </section>
 
 
         <!-- 
