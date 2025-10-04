@@ -1,223 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    /* --- Global Styles --- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0e0e0e;
-      color: #fff;
-      line-height: 1.6;
-    }
-    a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
-
-    /* --- Header --- */
-    header {
-      background: #111;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 10;
-    }
-    header h1 {
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-    nav a {
-      margin-left: 20px;
-      font-weight: 400;
-      color: #fff;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #00bcd4;
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(to bottom right, #0d0d0d, #1a1a1a);
-      padding: 0 20px;
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 25px;
-    }
-    .btn {
-      background: #00bcd4;
-      color: #111;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #00acc1;
-    }
-
-    /* --- About --- */
-    section {
-      padding: 100px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2.section-title {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-      color: #00bcd4;
-    }
-    .about p {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-      color: #ccc;
-    }
-
-    /* --- Projects --- */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-    .project-card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-    .project-card h3 {
-      margin-bottom: 10px;
-      color: #00bcd4;
-    }
-    .project-card p {
-      color: #ccc;
-      margin-bottom: 10px;
-    }
-
-    /* --- Contact --- */
-    .contact-info {
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    .contact-info a {
-      margin: 0 10px;
-    }
-
-    /* --- Footer --- */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    /* --- Responsive --- */
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 2rem; }
-      nav { display: none; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Developer Portfolio | Santhosh Subramanian Dharmalingam</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use a dark theme and the Inter font -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0f172a', // Slate 900
+                        'secondary-dark': '#1e293b', // Slate 800
+                        'accent': '#06b6d4', // Cyan 500 (A bright, techy blue)
+                        'accent-light': '#22d3ee', // Cyan 400
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scroll behavior for smooth navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style the scrollbar for better aesthetics */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #06b6d4;
+            border-radius: 20px;
+        }
+    </style>
 </head>
-<body>
 
-  <!-- Header -->
-  <header>
-    <h1>Your Name</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+<body class="bg-primary-dark text-slate-200 font-sans antialiased">
+
+    <!-- 
+        ===================================================================
+        NAVIGATION BAR
+        ===================================================================
+    -->
+    <nav class="sticky top-0 z-50 bg-secondary-dark/95 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0">
+                    <a href="#hero" class="text-2xl font-bold text-accent hover:text-accent-light transition duration-300">
+                        &lt;EmbeddedDev/&gt;
+                    </a>
+                </div>
+                <!-- Nav Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                        <a href="#skills" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
+                        <a href="#projects" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
+                        <a href="#contact" class="text-slate-300 hover:bg-slate-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
+                <a href="#skills" class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Skills</a>
+                <a href="#projects" class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Projects</a>
+                <a href="#contact" class="text-slate-300 hover:bg-slate-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+            </div>
+        </div>
     </nav>
-  </header>
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h2>Hi, I'm Your Name 👋</h2>
-    <p>A passionate developer who loves building meaningful digital experiences.</p>
-    <a href="#projects" class="btn">View My Work</a>
-  </section>
+        <!-- 
+            ===================================================================
+            HERO SECTION
+            ===================================================================
+        -->
+        <section id="hero" class="pt-20 pb-28 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Text Content -->
+                <div class="md:col-span-2">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-4">
+                        Hello, I'm <span class="text-accent-light">Santhosh Subramanian.D</span>
+                    </h1>
+                    <p class="text-2xl sm:text-3xl font-medium text-slate-400 mb-8">
+                        EE Systems Architect specializing in <span class="text-accent">MBSE | Vehicle Diagnostics, OTA, SoVD & SDV</span>.
+                    </p>
+                    <a href="#projects" class="inline-block px-8 py-3 bg-accent hover:bg-accent-light text-primary-dark font-bold text-lg rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300 ease-in-out">
+                        View Key Projects
+                    </a>
+                    <a href="#contact" class="inline-block ml-4 px-8 py-3 border border-slate-600 text-slate-200 hover:bg-secondary-dark font-bold text-lg rounded-xl transition duration-300 ease-in-out">
+                        Get in Touch
+                    </a>
+                </div>
+                <!-- Profile Image Placeholder -->
+                <div class="md:col-span-1 flex justify-center">
+                    <!-- Note: Cannot display the image from the PDF directly. Using a professional placeholder. 
+                         Replace the 'src' attribute below with the URL of your actual profile picture. -->
+                    <img class="w-56 h-56 md:w-64 md:h-64 rounded-full border-4 border-accent shadow-2xl object-cover" 
+                         src="https://placehold.co/256x256/06b6d4/0f172a?text=SSD" 
+                         alt="Santhosh Subramanian Dharmalingam Profile Picture">
+                </div>
+            </div>
+        </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2 class="section-title">About Me</h2>
-    <p>I’m a software engineer with interests in web development, data, and clean design.
-       I enjoy learning new technologies and solving challenging problems.
-       This website highlights some of my work and ongoing projects.</p>
-  </section>
+        <!-- Separator -->
+        <div class="w-full h-0.5 bg-slate-700/50 rounded-full mb-12"></div>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Project One</h3>
-        <p>A short description of your project. Built with HTML, CSS, and JS.</p>
-        <a href="https://github.com/yourusername/project-one" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>Project Two</h3>
-        <p>Another cool project — perhaps with Python or React.</p>
-        <a href="https://github.com/yourusername/project-two" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>Project Three</h3>
-        <p>Something creative, like an AI demo or data visualization.</p>
-        <a href="https://github.com/yourusername/project-three" target="_blank">View on GitHub</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-info">
-      <p>📧 <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-      <p>
-        🔗 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
-        💻 <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      </p>
-    </div>
-  </section>
+        <!-- 
+            ===================================================================
+            ABOUT SECTION
+            ===================================================================
+        -->
+        <section id="about" class="py-16">
+            <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                About Me
+            </h2>
+            <div class="bg-secondary-dark p-8 md:p-12 rounded-2xl shadow-xl border border-slate-700">
+                <p class="text-lg leading-relaxed text-slate-300">
+                    I am a solution-oriented EE Systems Architect with a strong background in the automotive industry, currently leading diagnostic system design for SAE L4 autonomous shuttles at Cognizant Mobility GmbH. My focus is on understanding operational complexities to align technical solutions—specifically in the areas of **Diagnostics (DoIP, DoCAN, UDS)**, **Functional Safety**, and **Cybersecurity**—with critical organizational and regulatory needs.
+                </p>
+                <p class="text-lg leading-relaxed text-slate-300 mt-6">
+                    I excel as a collaborative team player, known for clear communication, self-driven learning, and adaptability in dynamic, agile environments. I am proficient in **Model-Based Systems Engineering (MBSE)** using tools like PREEvision and Capella, enabling me to define robust system requirements and manage complex electrical architectures. My consistent focus is on delivering tangible value through practical, business-aligned outcomes in vehicle development lifecycle phases.
+                </p>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Your Name — Built with ❤️ using HTML, CSS, and GitHub Pages</p>
-  </footer>
+        
+        <!-- 
+            ===================================================================
+            SKILLS SECTION
+            ===================================================================
+        -->
+        <section id="skills" class="py-16">
+            <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                Technical Expertise
+            </h2>
+            <div class="space-y-12">
 
+                <!-- Skill Category: Core Systems & Diagnostics -->
+                <div class="bg-secondary-dark p-6 rounded-2xl shadow-xl border border-slate-700">
+                    <h3 class="text-2xl font-semibold text-accent mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L12 19.25M12 19.25L14.25 17M12 19.25V4M20 9L12 4L4 9M4 15V9L12 4L20 9V15M4 15H20M4 15L12 19L20 15"></path></svg>
+                        Diagnostics & Protocols
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">CANdelaStudio</span>
+                        <span class="skill-badge">DiVa</span>
+                        <span class="skill-badge">ODX Studio</span>
+                        <span class="skill-badge">DTS Monaco</span>
+                        <span class="skill-badge">TDX Studio</span>
+                        <span class="skill-badge">LIN</span>
+                        <span class="skill-badge">CAN / DoCAN</span>
+                        <span class="skill-badge">DoIP / ETH</span>
+                        <span class="skill-badge">AUTOSAR (DEM, DCM)</span>
+                        <span class="skill-badge">SAE J1979</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category: Modeling & Standards -->
+                <div class="bg-secondary-dark p-6 rounded-2xl shadow-xl border border-slate-700">
+                    <h3 class="text-2xl font-semibold text-accent mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h16"></path></svg>
+                        MBSE & Standards
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">Vector PREEvision</span>
+                        <span class="skill-badge">Capella</span>
+                        <span class="skill-badge">ISO 15288</span>
+                        <span class="skill-badge">ISO 20080</span>
+                        <span class="skill-badge">ASAM SOVD V1</span>
+                        <span class="skill-badge">R155 / R166 (Cybersecurity/Safety)</span>
+                    </div>
+                </div>
+
+                <!-- Skill Category: Testing & Tools -->
+                <div class="bg-secondary-dark p-6 rounded-2xl shadow-xl border border-slate-700">
+                    <h3 class="text-2xl font-semibold text-accent mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        Testing, HIL & Scripting
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">ECU Test</span>
+                        <span class="skill-badge">dSPACE ControlDesk</span>
+                        <span class="skill-badge">CANoe / CANalyzer</span>
+                        <span class="skill-badge">INCA</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Basic C</span>
+                        <span class="skill-badge">CAPL</span>
+                        <span class="skill-badge">Simulink / Stateflow (MATLAB)</span>
+                        <span class="skill-badge">HIL Testing (Pi Innovo M560)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            Inject CSS for skill badges for aesthetics 
+        -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.skill-badge').forEach(badge => {
+                    badge.classList.add('px-4', 'py-1.5', 'rounded-full', 'text-sm', 'font-medium', 'bg-slate-700', 'text-slate-200', 'border', 'border-accent/50', 'hover:bg-accent/20', 'transition', 'duration-200');
+                });
+            });
+        </script>
+
+        <!-- 
+            ===================================================================
+            PROJECTS & EXPERIENCE SECTION
+            ===================================================================
+        -->
+        <section id="projects" class="py-16">
+            <h2 class="text-4xl font-bold text-white mb-10 text-center">
+                Featured Experience & Projects
+            </h2>
+            <div class="space-y-12">
+
+                <!-- Project Card 1: Lead EE-System Architect (Holon People Mover) -->
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold text-white">Lead EE-System Architect (Diagnostics & SW-Update)</h3>
+                    <p class="text-accent-light mt-1 mb-3">Cognizant Mobility GmbH | Jan 2023 - Present</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+                        <li>**SAE L4 Autonomous Shuttle Diagnostics:** Led the system design for diagnostics, including **40+ diagnostic endpoints**, communication over **DoIP and DoCAN**, ensuring compliance with **cybersecurity and functional safety** standards (R155, R166).</li>
+                        <li>**MBSE Requirement Management:** Defined use cases, network, and logical architectures, and wrote **L2-L4 system requirements** using **Vector PREEvision**.</li>
+                        <li>**Team Leadership:** Built and managed a team of 4 diagnostic system engineers, aligning requirements across chassis, body, powertrain, and self-driving systems.</li>
+                        <li>**Integration & Validation:** First point of contact for diagnostic issues during LabCar setups, prototype builds, and system integration testing.</li>
+                    </ul>
+                </div>
+
+                <!-- Project Card 2: System Specialist (BMW Group - Test Automation) -->
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold text-white">System Specialist & Test Automation Engineer</h3>
+                    <p class="text-accent-light mt-1 mb-3">ESG Mobility GmbH | Nov 2019 - July 2022</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+                        <li>**Test Automation Development:** Developed and implemented automated test solutions for BMW's automatic gear transmission systems (Gen 4 & 5) using **ECU-Test, Python, CANoe, and dSPACE**, significantly enhancing test coverage and system reliability.</li>
+                        <li>**EE Integration:** Managed H/W and S/W integration for Vehicle Body Domain systems (Climate, Smart Access, Doors) across BMW/Rolls-Royce platforms, utilizing **Octane, CANoe, and ECU-Test** on HIL and prototype vehicles.</li>
+                        <li>**Calibration & Validation:** Supported system integration and validation for longitudinal torque distribution (LMV) on the BMW 8 Series using **ETAS INCA** and Tool 32.</li>
+                    </ul>
+                </div>
+
+                <!-- Project Card 3: Master Thesis (EV Charging ECU) -->
+                <div class="project-card">
+                    <h3 class="text-2xl font-bold text-white">Master Thesis: EV Communication Interface ECU</h3>
+                    <p class="text-accent-light mt-1 mb-3">FEV Europe GmbH | Mar 2019 - Sep 2019</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-300 ml-4">
+                        <li>**Function Development:** Designed and implemented a communication interface ECU function for EV and **GB/T Standard DC-Charger** using **MATLAB Simulink and Stateflow**.</li>
+                        <li>**Automated Testing:** Implemented an automated test system for **CAN and J1939** messages using **CANalyzer and CAPL scripting** to validate software functionality.</li>
+                        <li>**HIL Implementation:** Conducted software tests in an Open Loop **Hardware-in-the-Loop (HIL)** environment utilizing the **Pi Innovo M560** hardware platform.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Inject CSS for project cards -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        card.classList.add('bg-secondary-dark', 'p-8', 'rounded-2xl', 'shadow-2xl', 'border', 'border-accent/30', 'hover:border-accent', 'transition', 'duration-300', 'hover:shadow-accent/30');
+                    });
+                });
+            </script>
+        </section>
+
+
+        <!-- 
+            ===================================================================
+            CONTACT SECTION
+            ===================================================================
+        -->
+        <section id="contact" class="py-16 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Let's Connect
+            </h2>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
+                I am open to discussing new opportunities in EE System Architecture, Diagnostics, and Software-Defined Vehicles. Feel free to reach out via email or connect with me on LinkedIn.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <!-- Email Link -->
+                <a href="mailto:santhoshsubramanian03@gmail.com" 
+                   class="flex items-center justify-center px-8 py-3 bg-slate-700 text-white font-semibold rounded-xl shadow-lg hover:bg-slate-600 transition duration-300 transform hover:scale-[1.05]">
+                    <!-- Placeholder for Email Icon -->
+                    <svg class="w-6 h-6 mr-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    santhoshsubramanian03@gmail.com
+                </a>
+                
+                <!-- LinkedIn Link -->
+                <a href="https://www.linkedin.com/in/santhosh-ing" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center justify-center px-8 py-3 bg-accent text-primary-dark font-semibold rounded-xl shadow-lg hover:bg-accent-light transition duration-300 transform hover:scale-[1.05]">
+                    <!-- Placeholder for LinkedIn Icon -->
+                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 17h4v7H4zM6 4.5A2.5 2.5 0 116 9 2.5 2.5 0 016 4.5z"></path></svg>
+                    LinkedIn Profile
+                </a>
+            </div>
+
+            <!-- Download CV (Optional, placeholder for file path) -->
+            <p class="text-sm text-slate-500 mt-8">
+                *Since you uploaded your resume, you can also link it here: 
+                <a href="Santhosh_Resume_July2025.pdf" download class="text-accent hover:underline ml-2">[Download CV]</a>
+            </p>
+        </section>
+
+    </main>
+
+    <!-- 
+        ===================================================================
+        FOOTER
+        ===================================================================
+    -->
+    <footer class="bg-secondary-dark border-t border-slate-700/50 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-400 text-sm">
+            <p>&copy; 2025 Santhosh Subramanian Dharmalingam. Built for GitHub Pages.</p>
+        </div>
+    </footer>
+
+
+    <!-- 
+        ===================================================================
+        JAVASCRIPT FOR MOBILE MENU
+        ===================================================================
+    -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
